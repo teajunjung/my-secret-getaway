@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>콘텐츠 관리 대시보드 | MY SECRET GETAWAY</title>
+  <meta name="robots" content="noindex, nofollow">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Serif+KR:wght@300;400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./src/admin.css">
+</head>
+<body class="admin-page">
+
+  <!-- Admin Top Bar -->
+  <header class="admin-topbar">
+    <div class="admin-topbar-inner">
+      <a href="./admin.html" class="admin-logo">
+        <span class="logo-title">MY SECRET GETAWAY</span>
+        <span class="admin-badge">ADMIN</span>
+      </a>
+      <div class="admin-topbar-actions">
+        <a href="./index.html" class="topbar-link" target="_blank">🌐 사이트 미리보기</a>
+        <button id="logout-btn" class="topbar-link logout-link">로그아웃</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="admin-layout">
+    <!-- Sidebar Nav -->
+    <aside class="admin-sidebar">
+      <nav class="sidebar-nav">
+        <button class="sidebar-item active" data-section="dashboard">
+          <span class="sidebar-icon">📊</span> 대시보드
+        </button>
+        <button class="sidebar-item" data-section="site-settings">
+          <span class="sidebar-icon">⚙️</span> 사이트 설정
+        </button>
+        <button class="sidebar-item" data-section="curations">
+          <span class="sidebar-icon">📌</span> 큐레이션 관리
+        </button>
+        <button class="sidebar-item" data-section="guidebooks">
+          <span class="sidebar-icon">📚</span> 가이드북 관리
+        </button>
+        <button class="sidebar-item" data-section="testimonials">
+          <span class="sidebar-icon">💬</span> 고객 후기 관리
+        </button>
+      </nav>
+      <div class="sidebar-footer">
+        <button id="reset-all-btn" class="sidebar-reset-btn">🔄 모든 데이터 초기화</button>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="admin-main">
+      <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+      <!-- Dashboard Section -->
+      <section class="admin-section active" data-panel="dashboard">
+        <h2 class="admin-section-title">대시보드</h2>
+        <p class="admin-section-desc">MY SECRET GETAWAY 콘텐츠 관리 현황을 한눈에 확인합니다.</p>
+
+        <div class="stat-cards-row">
+          <div class="admin-stat-card">
+            <span class="admin-stat-icon">📌</span>
+            <div>
+              <span class="admin-stat-num" id="stat-curations">0</span>
+              <span class="admin-stat-label">등록된 큐레이션</span>
+            </div>
+          </div>
+          <div class="admin-stat-card">
+            <span class="admin-stat-icon">📚</span>
+            <div>
+              <span class="admin-stat-num" id="stat-guidebooks">0</span>
+              <span class="admin-stat-label">가이드북 상품</span>
+            </div>
+          </div>
+          <div class="admin-stat-card">
+            <span class="admin-stat-icon">💬</span>
+            <div>
+              <span class="admin-stat-num" id="stat-testimonials">0</span>
+              <span class="admin-stat-label">고객 후기</span>
+            </div>
+          </div>
+          <div class="admin-stat-card">
+            <span class="admin-stat-icon">✉️</span>
+            <div>
+              <span class="admin-stat-num" id="stat-subscribers">—</span>
+              <span class="admin-stat-label">이메일 구독자</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="dashboard-quick-actions">
+          <h3>빠른 관리</h3>
+          <div class="quick-action-grid">
+            <button class="quick-action-btn" data-goto="curations">📌 큐레이션 추가/수정</button>
+            <button class="quick-action-btn" data-goto="guidebooks">📚 가이드북 추가/수정</button>
+            <button class="quick-action-btn" data-goto="testimonials">💬 후기 추가/수정</button>
+            <button class="quick-action-btn" data-goto="site-settings">⚙️ 사이트 텍스트 수정</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Site Settings Section -->
+      <section class="admin-section" data-panel="site-settings">
+        <h2 class="admin-section-title">사이트 설정</h2>
+        <p class="admin-section-desc">Hero 카피, 섹션 타이틀, About 텍스트 등 메인 사이트의 주요 텍스트를 수정합니다.</p>
+
+        <form id="settings-form" class="admin-form">
+          <fieldset class="admin-fieldset">
+            <legend>Hero 섹션</legend>
+            <div class="form-field">
+              <label for="set-heroTitle">히어로 메인 카피</label>
+              <input type="text" id="set-heroTitle" placeholder="당신의 취향을 닮은 완벽한 휴식,">
+            </div>
+            <div class="form-field">
+              <label for="set-heroAccent">히어로 강조 문구 (이탤릭)</label>
+              <input type="text" id="set-heroAccent" placeholder="나만의 시크릿 겟어웨이">
+            </div>
+            <div class="form-field">
+              <label for="set-heroDescription">히어로 서브 카피</label>
+              <textarea id="set-heroDescription" rows="2"></textarea>
+            </div>
+          </fieldset>
+
+          <fieldset class="admin-fieldset">
+            <legend>큐레이션 섹션</legend>
+            <div class="form-field">
+              <label for="set-curationSectionTitle">섹션 제목</label>
+              <input type="text" id="set-curationSectionTitle">
+            </div>
+            <div class="form-field">
+              <label for="set-curationSectionDesc">섹션 설명</label>
+              <input type="text" id="set-curationSectionDesc">
+            </div>
+          </fieldset>
+
+          <fieldset class="admin-fieldset">
+            <legend>가이드북 섹션</legend>
+            <div class="form-field">
+              <label for="set-guidebookSectionTitle">섹션 제목</label>
+              <input type="text" id="set-guidebookSectionTitle">
+            </div>
+            <div class="form-field">
+              <label for="set-guidebookSectionDesc">섹션 설명</label>
+              <input type="text" id="set-guidebookSectionDesc">
+            </div>
+          </fieldset>
+
+          <fieldset class="admin-fieldset">
+            <legend>About 섹션</legend>
+            <div class="form-field">
+              <label for="set-aboutQuote">대표 인용문</label>
+              <input type="text" id="set-aboutQuote">
+            </div>
+            <div class="form-field">
+              <label for="set-aboutBio">큐레이터 소개 본문</label>
+              <textarea id="set-aboutBio" rows="4"></textarea>
+            </div>
+            <div class="form-row-2col">
+              <div class="form-field">
+                <label for="set-statSpots">시크릿 스팟 수</label>
+                <input type="text" id="set-statSpots" placeholder="500+">
+              </div>
+              <div class="form-field">
+                <label for="set-statSatisfaction">고객 만족도</label>
+                <input type="text" id="set-statSatisfaction" placeholder="99.2%">
+              </div>
+            </div>
+          </fieldset>
+
+          <div class="admin-form-actions">
+            <button type="button" id="settings-cancel-btn" class="btn btn-outline">취소 (되돌리기)</button>
+            <button type="submit" class="btn btn-primary">설정 저장</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Curations Management Section -->
+      <section class="admin-section" data-panel="curations">
+        <div class="admin-section-header-row">
+          <div>
+            <h2 class="admin-section-title">큐레이션 관리</h2>
+            <p class="admin-section-desc">이달의 프라이빗 큐레이션 카드를 추가, 수정, 삭제합니다.</p>
+          </div>
+          <button id="add-curation-btn" class="btn btn-primary btn-sm">+ 큐레이션 추가</button>
+        </div>
+
+        <div id="curations-list" class="admin-items-list">
+          <!-- Rendered by JS -->
+        </div>
+
+        <!-- Edit Form (hidden initially) -->
+        <div id="curation-edit-panel" class="admin-edit-panel" hidden>
+          <h3 id="curation-edit-title">큐레이션 수정</h3>
+          <form id="curation-edit-form" class="admin-form">
+            <input type="hidden" id="ce-id">
+            <div class="form-row-2col">
+              <div class="form-field">
+                <label for="ce-title">장소 제목</label>
+                <input type="text" id="ce-title" required>
+              </div>
+              <div class="form-field">
+                <label for="ce-location">위치</label>
+                <input type="text" id="ce-location" required>
+              </div>
+            </div>
+            <div class="form-row-2col">
+              <div class="form-field">
+                <label for="ce-badge">뱃지</label>
+                <select id="ce-badge">
+                  <option value="NEW">NEW</option>
+                  <option value="단독 공개">단독 공개</option>
+                  <option value="인기 스팟">인기 스팟</option>
+                  <option value="추천">추천</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="ce-image">이미지 업로드 (Cloudinary)</label>
+                <input type="file" id="ce-image-file" accept="image/*">
+                <input type="hidden" id="ce-image-url">
+                <input type="hidden" id="ce-image-public-id">
+                <small id="ce-image-status" style="color: var(--sage-green);"></small>
+              </div>
+            </div>
+            <div class="form-row-2col">
+              <div class="form-field">
+                <label for="ce-ratingLabel">평점 라벨</label>
+                <input type="text" id="ce-ratingLabel" placeholder="휴식도">
+              </div>
+              <div class="form-field">
+                <label for="ce-ratingValue">평점 값</label>
+                <input type="text" id="ce-ratingValue" placeholder="5.0 / 5.0">
+              </div>
+            </div>
+            <div class="form-field">
+              <label for="ce-tags">감성 태그 (쉼표 구분)</label>
+              <input type="text" id="ce-tags" placeholder="숲속의작은집, 혼자만의정적">
+            </div>
+            <div class="form-field">
+              <label for="ce-quote">크리에이터 한 줄 평</label>
+              <input type="text" id="ce-quote" required>
+            </div>
+            <div class="form-field">
+              <label for="ce-description">상세 설명</label>
+              <textarea id="ce-description" rows="3" required></textarea>
+            </div>
+            <div class="form-row-2col">
+              <div class="form-field">
+                <label for="ce-lat">위도 (Lat)</label>
+                <input type="text" id="ce-lat">
+              </div>
+              <div class="form-field">
+                <label for="ce-lng">경도 (Lng)</label>
+                <input type="text" id="ce-lng">
+              </div>
+            </div>
+            <div class="admin-form-actions">
+              <button type="button" id="curation-cancel-btn" class="btn btn-outline">취소</button>
+              <button type="submit" class="btn btn-primary">저장</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- Guidebooks Management Section -->
+      <section class="admin-section" data-panel="guidebooks">
+        <div class="admin-section-header-row">
+          <div>
+            <h2 class="admin-section-title">가이드북 관리</h2>
+            <p class="admin-section-desc">디지털 가이드북 상품을 추가, 수정, 삭제합니다.</p>
+          </div>
+          <button id="add-guidebook-btn" class="btn btn-primary btn-sm">+ 가이드북 추가</button>
+        </div>
+
+        <div id="guidebooks-list" class="admin-items-list">
+          <!-- Rendered by JS -->
+        </div>
+
+        <div id="guidebook-edit-panel" class="admin-edit-panel" hidden>
+          <h3 id="guidebook-edit-title">가이드북 수정</h3>
+          <form id="guidebook-edit-form" class="admin-form">
+            <input type="hidden" id="ge-id">
+            <div class="form-row-2col">
+              <div class="form-field">
+                <label for="ge-title">제목</label>
+                <input type="text" id="ge-title" required>
+              </div>
+              <div class="form-field">
+                <label for="ge-subtitle">부제</label>
+                <input type="text" id="ge-subtitle">
+              </div>
+            </div>
+            <div class="form-row-2col">
+              <div class="form-field">
+                <label for="ge-pages">PDF 페이지 수</label>
+                <input type="text" id="ge-pages" placeholder="36 Pages PDF">
+              </div>
+              <div class="form-field">
+                <label for="ge-price">가격 (숫자)</label>
+                <input type="number" id="ge-price" placeholder="29000" required>
+              </div>
+            </div>
+            <div class="form-field">
+              <label for="ge-image">이미지 업로드 (Cloudinary)</label>
+              <input type="file" id="ge-image-file" accept="image/*">
+              <input type="hidden" id="ge-image-url">
+              <input type="hidden" id="ge-image-public-id">
+              <small id="ge-image-status" style="color: var(--sage-green);"></small>
+            </div>
+            <div class="form-field">
+              <label for="ge-description">설명</label>
+              <textarea id="ge-description" rows="3" required></textarea>
+            </div>
+            <div class="admin-form-actions">
+              <button type="button" id="guidebook-cancel-btn" class="btn btn-outline">취소</button>
+              <button type="submit" class="btn btn-primary">저장</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- Testimonials Management Section -->
+      <section class="admin-section" data-panel="testimonials">
+        <div class="admin-section-header-row">
+          <div>
+            <h2 class="admin-section-title">고객 후기 관리</h2>
+            <p class="admin-section-desc">고객 후기 인용구를 추가, 수정, 삭제합니다.</p>
+          </div>
+          <button id="add-testimonial-btn" class="btn btn-primary btn-sm">+ 후기 추가</button>
+        </div>
+
+        <div id="testimonials-list" class="admin-items-list">
+          <!-- Rendered by JS -->
+        </div>
+
+        <div id="testimonial-edit-panel" class="admin-edit-panel" hidden>
+          <h3 id="testimonial-edit-title">후기 수정</h3>
+          <form id="testimonial-edit-form" class="admin-form">
+            <input type="hidden" id="te-id">
+            <div class="form-row-2col">
+              <div class="form-field">
+                <label for="te-name">고객 이름</label>
+                <input type="text" id="te-name" placeholder="홍길동 님" required>
+              </div>
+              <div class="form-field">
+                <label for="te-role">고객 직업/소개</label>
+                <input type="text" id="te-role" placeholder="30대 IT 서비스 기획자">
+              </div>
+            </div>
+            <div class="form-field">
+              <label for="te-quote">후기 내용</label>
+              <textarea id="te-quote" rows="3" required></textarea>
+            </div>
+            <div class="form-field">
+              <label for="te-avatar">아바타 이미지 업로드 (Cloudinary)</label>
+              <input type="file" id="te-avatar-file" accept="image/*">
+              <input type="hidden" id="te-avatar-url">
+              <input type="hidden" id="te-avatar-public-id">
+              <small id="te-avatar-status" style="color: var(--sage-green);"></small>
+            </div>
+            <div class="admin-form-actions">
+              <button type="button" id="testimonial-cancel-btn" class="btn btn-outline">취소</button>
+              <button type="submit" class="btn btn-primary">저장</button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="./src/admin.js"></script>
+</body>
+</html>

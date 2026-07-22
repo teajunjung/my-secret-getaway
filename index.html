@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MY SECRET GETAWAY | 프라이빗 여행 큐레이션 & 1:1 맞춤 일정 컨설팅</title>
+  <meta name="description" content="로컬 여행 전문가가 직접 경험하고 검증한 프라이빗 여행지 큐레이션 및 1:1 맞춤형 일정 설계 서비스">
+  <meta name="keywords" content="프라이빗 여행, 여행 큐레이션, 맞춤 일정 컨설팅, 1:1 여행 설계, 독채 리트릿, 감성 여행, 디지털 가이드북">
+  <meta name="theme-color" content="#FAF9F6">
+
+  <!-- Open Graph & Social Cards -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="MY SECRET GETAWAY">
+  <meta property="og:title" content="MY SECRET GETAWAY | 프라이빗 여행 큐레이션 & 1:1 맞춤 일정 컨설팅">
+  <meta property="og:description" content="로컬 여행 전문가가 직접 경험하고 검증한 프라이빗 여행지 큐레이션 및 1:1 맞춤형 일정 설계 서비스">
+  <meta property="og:image" content="./public/images/hero_forest.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="MY SECRET GETAWAY">
+  <meta name="twitter:description" content="나만의 취향을 닮은 완벽한 휴식, 프라이빗 여행지 큐레이션">
+  <meta name="twitter:image" content="./public/images/hero_forest.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Serif+KR:wght@300;400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="./src/style.css">
+</head>
+<body>
+  <!-- Accessible Skip Link -->
+  <a href="#main-content" class="skip-link">본문 콘텐츠로 바로가기</a>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+  <!-- Header GNB -->
+  <header id="main-header" class="main-header" role="banner">
+    <div class="header-container">
+      <a href="#" class="logo-brand" aria-label="MY SECRET GETAWAY 홈으로 이동">
+        <span class="logo-title">MY SECRET GETAWAY</span>
+        <span class="logo-sub">PRIVATE CURATION</span>
+      </a>
+
+      <nav class="gnb-nav" aria-label="주 메뉴">
+        <a href="#curation" class="nav-link">Curation</a>
+        <a href="#secret-map" class="nav-link">Secret Map</a>
+        <a href="#guidebook" class="nav-link">Guidebook</a>
+        <a href="#about" class="nav-link">About</a>
+      </nav>
+
+      <div class="header-actions">
+        <button id="cart-toggle-btn" class="icon-btn cart-btn" aria-label="장바구니 보기">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span id="cart-count-badge" class="cart-badge" aria-label="장바구니 수량">0</span>
+        </button>
+        <a href="#consulting" class="btn btn-primary btn-sm header-cta">상담 예약</a>
+        <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="모바일 메뉴 열기" aria-expanded="false" aria-controls="mobile-drawer">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div id="mobile-drawer" class="mobile-drawer" role="navigation" aria-label="모바일 메뉴" aria-hidden="true">
+    <div class="drawer-header">
+      <span class="logo-title">MY SECRET GETAWAY</span>
+      <button id="drawer-close-btn" class="drawer-close-btn" aria-label="메뉴 닫기">&times;</button>
+    </div>
+    <nav class="drawer-nav">
+      <a href="#curation" class="drawer-link">Curation</a>
+      <a href="#secret-map" class="drawer-link">Secret Map</a>
+      <a href="#guidebook" class="drawer-link">Guidebook</a>
+      <a href="#about" class="drawer-link">About</a>
+      <a href="#consulting" class="btn btn-primary drawer-cta">나만을 위한 맞춤 여행 의뢰하기</a>
+    </nav>
+  </div>
+
+  <main id="main-content" role="main">
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section" aria-label="메인 소개">
+      <div class="hero-slideshow">
+        <div class="hero-slide active" style="background-image: url('./public/images/hero_forest.png');" role="img" aria-label="고요한 숲속 독채 샬레 풍경"></div>
+        <div class="hero-slide" style="background-image: url('./public/images/ocean_cliff.png');" role="img" aria-label="지중해 절벽 위 오션뷰 테라스"></div>
+        <div class="hero-slide" style="background-image: url('./public/images/kyoto_tea.png');" role="img" aria-label="교토 숲속의 고즈넉한 찻집"></div>
+        <div class="hero-overlay"></div>
+      </div>
+
+      <div class="hero-content container">
+        <span class="hero-tagline animate-fade-up">EXCLUSIVE PRIVATE CURATION</span>
+        <h1 class="hero-title animate-fade-up delay-1">
+          당신의 취향을 닮은 완벽한 휴식,<br>
+          <span class="serif-accent">나만의 시크릿 겟어웨이</span>
+        </h1>
+        <p class="hero-description animate-fade-up delay-2">
+          복잡한 여행 준비 대신, 현지 크리에이터가 검증한 1:1 맞춤형 힐링 일정과<br>
+          감성적인 프라이빗 공간을 선물합니다.
+        </p>
+
+        <div class="hero-cta-group animate-fade-up delay-3">
+          <a href="#consulting" class="btn btn-primary btn-lg">나만을 위한 맞춤 여행 의뢰하기</a>
+          <a href="#guidebook" class="btn btn-secondary-light btn-lg">이번 달 시크릿 가이드북 열어보기</a>
+        </div>
+      </div>
+
+      <div class="hero-controls">
+        <div class="slide-indicators" aria-label="슬라이더 이동 선택">
+          <button class="indicator active" data-index="0" aria-label="1번 슬라이드로 이동"></button>
+          <button class="indicator" data-index="1" aria-label="2번 슬라이드로 이동"></button>
+          <button class="indicator" data-index="2" aria-label="3번 슬라이드로 이동"></button>
+        </div>
+        <div class="scroll-indicator">
+          <span>SCROLL</span>
+          <div class="scroll-line"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Editor's Pick Section (Curation) -->
+    <section id="curation" class="curation-section section-padding">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-subtitle">EDITOR'S SELECTION</span>
+          <h2 class="section-title">이달의 프라이빗 큐레이션</h2>
+          <p class="section-desc">크리에이터가 직접 머물고 검증한, 영감을 주는 비밀스러운 장소들입니다.</p>
+        </div>
+
+        <!-- Emotional Tag Filter -->
+        <div class="tag-filter-container" aria-label="감성 태그 필터">
+          <div class="tag-filter-scroll">
+            <button class="tag-btn active" data-tag="all">#전체보기</button>
+            <button class="tag-btn" data-tag="숲속의작은집">#숲속의작은집</button>
+            <button class="tag-btn" data-tag="영감이필요할때">#영감이필요할때</button>
+            <button class="tag-btn" data-tag="노트북하기좋은">#노트북하기좋은</button>
+            <button class="tag-btn" data-tag="오션뷰멍때리기">#오션뷰멍때리기</button>
+            <button class="tag-btn" data-tag="혼자만의정적">#혼자만의정적</button>
+          </div>
+        </div>
+
+        <!-- Curation Grid -->
+        <div id="curation-grid" class="curation-grid">
+          <!-- Rendered dynamically by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Secret Map Membership Section -->
+    <section id="secret-map" class="secret-map-section section-padding">
+      <div class="container">
+        <div class="secret-map-card">
+          <div class="secret-map-bg-preview" id="map-preview-bg">
+            <div class="blur-overlay" id="map-blur-layer"></div>
+          </div>
+
+          <div class="secret-map-content text-center">
+            <div class="lock-icon-badge" id="lock-badge" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </div>
+            
+            <span class="section-subtitle light">MEMBERSHIP EXCLUSIVE</span>
+            <h2 class="secret-map-title">구독자 전용 시크릿 맵</h2>
+            <p class="secret-map-desc" id="secret-map-status-text">
+              대중에게 잘 알려지지 않은 최고 레벨의 비밀 장소 좌표와 구글 맵 레이어를 해제하세요.<br>
+              이메일 구독 즉시 100% 무료로 시크릿 핀이 활성화됩니다.
+            </p>
+
+            <!-- Unlock Form -->
+            <form id="secret-unlock-form" class="secret-unlock-form">
+              <div class="input-group">
+                <input type="email" id="subscriber-email" placeholder="비밀 지도 좌표를 받을 이메일 주소" aria-label="비밀 지도 좌표를 받을 이메일 주소" required>
+                <button type="submit" class="btn btn-terracotta">시크릿 맵 해제하기</button>
+              </div>
+              <span class="form-privacy-note">스팸 없이 월 1회 프리미엄 큐레이션 소식만 전해드립니다.</span>
+            </form>
+
+            <!-- Unlocked State View (Hidden initially) -->
+            <div id="unlocked-view" class="unlocked-view hidden">
+              <div class="unlock-success-badge">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>시크릿 지도 엑세스 권한이 해제되었습니다</span>
+              </div>
+              <div class="secret-location-pins" id="unlocked-pins-container">
+                <!-- Dynamically rendered unlocked pins -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Digital Guidebook Shop -->
+    <section id="guidebook" class="guidebook-section section-padding">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-subtitle">DIGITAL GUIDEBOOK SHOP</span>
+          <h2 class="section-title">테마별 디지털 가이드북</h2>
+          <p class="section-desc">동선 고민 없이 바로 떠날 수 있는 크리에이터의 손때 묻은 PDF 여행 일정표</p>
+        </div>
+
+        <div id="guidebook-grid" class="guidebook-grid">
+          <!-- Rendered dynamically by JS -->
+        </div>
+
+        <div class="guidebook-banner">
+          <div class="banner-content">
+            <h3>원하는 지역의 가이드북이 없으신가요?</h3>
+            <p>1:1 맞춤 컨설팅으로 오직 당신만을 위한 여행 동선을 직접 설계해 드립니다.</p>
+          </div>
+          <a href="#consulting" class="btn btn-secondary btn-md">맞춤 일정 신청하기</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 1:1 Consulting Request Form -->
+    <section id="consulting" class="consulting-section section-padding">
+      <div class="container">
+        <div class="consulting-wrapper">
+          <div class="consulting-info">
+            <span class="section-subtitle">1:1 CUSTOM CONSULTING</span>
+            <h2 class="consulting-title">오직 당신만의<br>시크릿 겟어웨이를<br>설계해 드립니다</h2>
+            <p class="consulting-intro">
+              취향 분석부터 숙소 추천, 숨은 맛집, 감성 카페, 이동 동선까지.<br>
+              당신의 소중한 휴식이 실패하지 않도록 1:1 밀착 일정 컨설팅을 제공합니다.
+            </p>
+
+            <ul class="consulting-highlights">
+              <li>
+                <span class="check-icon" aria-hidden="true">✓</span>
+                <div>
+                  <strong>크리에이터 직접 1:1 소통</strong>
+                  <p>일반 대행사가 아닌 브랜드 대표 큐레이터가 직접 상담합니다.</p>
+                </div>
+              </li>
+              <li>
+                <span class="check-icon" aria-hidden="true">✓</span>
+                <div>
+                  <strong>맞춤 노션(Notion) & PDF 일정표 제공</strong>
+                  <p>모바일에서 한눈에 확인하는 인터랙티브 모바일 일정표.</p>
+                </div>
+              </li>
+              <li>
+                <span class="check-icon" aria-hidden="true">✓</span>
+                <div>
+                  <strong>여행 중 실시간 응급 가이드</strong>
+                  <p>현지에서 변수가 생겼을 때 바로 대체 스팟을 추천해 드립니다.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Step-by-Step Form -->
+          <div class="consulting-form-card">
+            <!-- Form Header Progress -->
+            <div class="step-progress-header">
+              <div class="step-counter">STEP <span id="current-step-num">1</span> OF 4</div>
+              <div class="progress-bar-track" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                <div id="progress-bar-fill" class="progress-bar-fill" style="width: 25%;"></div>
+              </div>
+            </div>
+
+            <form id="consulting-step-form" class="step-form">
+              <!-- Step 1: 동행 및 목적 -->
+              <div class="form-step active" data-step="1">
+                <h3 class="step-question">누구와 함께 떠나는 어떤 여행인가요?</h3>
+                <p class="step-hint">가장 가까운 목적을 선택해 주세요 (다중 선택 가능)</p>
+
+                <div class="option-grid">
+                  <label class="option-card">
+                    <input type="checkbox" name="companion" value="혼자만의 휴식 & 리프레시">
+                    <div class="option-content">
+                      <span class="option-emoji" aria-hidden="true">🧘‍♂️</span>
+                      <span class="option-label">혼자만의 휴식 & 리프레시</span>
+                    </div>
+                  </label>
+                  <label class="option-card">
+                    <input type="checkbox" name="companion" value="연인과의 로맨틱 여행">
+                    <div class="option-content">
+                      <span class="option-emoji" aria-hidden="true">👩‍❤️‍👨</span>
+                      <span class="option-label">연인과의 로맨틱 겟어웨이</span>
+                    </div>
+                  </label>
+                  <label class="option-card">
+                    <input type="checkbox" name="companion" value="소규모 친한 친구">
+                    <div class="option-content">
+                      <span class="option-emoji" aria-hidden="true">🍷</span>
+                      <span class="option-label">소규모 절친 와인 & 힐링</span>
+                    </div>
+                  </label>
+                  <label class="option-card">
+                    <input type="checkbox" name="companion" value="노트북 작업 & 워케이션">
+                    <div class="option-content">
+                      <span class="option-emoji" aria-hidden="true">💻</span>
+                      <span class="option-label">영감을 찾는 워케이션</span>
+                    </div>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Step 2: 분위기 및 취향 -->
+              <div class="form-step" data-step="2">
+                <h3 class="step-question">가장 갈망하는 분위기는 어떤 곳인가요?</h3>
+                <p class="step-hint">당신이 그리는 여행의 시각적, 감각적 톤앤매너입니다</p>
+
+                <div class="option-grid">
+                  <label class="option-card">
+                    <input type="radio" name="mood" value="고요한 숲과 자연 속 안식처">
+                    <div class="option-content">
+                      <span class="option-emoji" aria-hidden="true">🌲</span>
+                      <span class="option-label">고요한 숲과 독채 안식처</span>
+                    </div>
+                  </label>
+                  <label class="option-card">
+                    <input type="radio" name="mood" value="탁 트인 오션뷰와 파도 소리">
+                    <div class="option-content">
+                      <span class="option-emoji" aria-hidden="true">🌊</span>
+                      <span class="option-label">탁 트인 오션뷰 & 테라스</span>
+                    </div>
+                  </label>
+                  <label class="option-card">
+                    <input type="radio" name="mood" value="감성적인 골목과 취향 카페 투어">
+                    <div class="option-content">
+                      <span class="option-emoji" aria-hidden="true">☕</span>
+                      <span class="option-label">감성 골목 & 앤티크 찻집</span>
+                    </div>
+                  </label>
+                  <label class="option-card">
+                    <input type="radio" name="mood" value="예술과 디자인이 있는 부티크 스테이">
+                    <div class="option-content">
+                      <span class="option-emoji" aria-hidden="true">🖼️</span>
+                      <span class="option-label">디자인 중심의 부티크 스테이</span>
+                    </div>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Step 3: 기간 및 예산 -->
+              <div class="form-step" data-step="3">
+                <h3 class="step-question">일정과 1인당 예상 예산을 입력해 주세요.</h3>
+                <p class="step-hint">예산에 맞춰 최적의 가성비/가심비 스팟을 구성해 드립니다</p>
+
+                <div class="form-group-stacked">
+                  <div class="form-field">
+                    <label for="travel-duration">예상 여행 기간 (예: 2박 3일, 3박 4일)</label>
+                    <input type="text" id="travel-duration" placeholder="예: 2026년 9월 중 3박 4일" required>
+                  </div>
+                  <div class="form-field">
+                    <label for="travel-budget">1인당 예상 예산 (숙소+경비)</label>
+                    <select id="travel-budget">
+                      <option value="50만원~100만원">50만원 ~ 100만원</option>
+                      <option value="100만원~200만원" selected>100만원 ~ 200만원</option>
+                      <option value="200만원~300만원">200만원 ~ 300만원</option>
+                      <option value="300만원 이상 (럭셔리 프리미엄)">300만원 이상 (프리미엄 럭셔리)</option>
+                    </select>
+                  </div>
+                  <div class="form-field">
+                    <label for="travel-destination">희망 지역 (미정인 경우 '추천 요청')</label>
+                    <input type="text" id="travel-destination" placeholder="예: 제주 조천읍, 교토, 강릉, 또는 '알아서 추천'">
+                  </div>
+                </div>
+              </div>
+
+              <!-- Step 4: 신청자 정보 -->
+              <div class="form-step" data-step="4">
+                <h3 class="step-question">컨설팅 결과를 전달받으실 연락처 정보입니다.</h3>
+                <p class="step-hint">신청 후 24시간 이내에 큐레이터가 카카오톡/이메일로 사전 안내드립니다</p>
+
+                <div class="form-group-stacked">
+                  <div class="form-field">
+                    <label for="client-name">성함</label>
+                    <input type="text" id="client-name" placeholder="홍길동" required>
+                  </div>
+                  <div class="form-field">
+                    <label for="client-phone">연락처 (카카오톡 연동)</label>
+                    <input type="tel" id="client-phone" placeholder="010-1234-5678" required>
+                  </div>
+                  <div class="form-field">
+                    <label for="client-email">이메일 주소</label>
+                    <input type="email" id="client-email" placeholder="example@email.com" required>
+                  </div>
+                  <div class="form-field">
+                    <label for="client-notes">추가 요청사항 (선택)</label>
+                    <textarea id="client-notes" rows="3" placeholder="예: 조용히 책 읽기 좋은 테라스가 꼭 있었으면 좋겠어요."></textarea>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Navigation Controls -->
+              <div class="step-nav-buttons">
+                <button type="button" id="prev-step-btn" class="btn btn-outline" style="display: none;">이전</button>
+                <button type="button" id="next-step-btn" class="btn btn-primary">다음 단계</button>
+                <button type="submit" id="submit-step-btn" class="btn btn-terracotta" style="display: none;">1:1 컨설팅 신청 완료</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section section-padding">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-subtitle">GUEST STORIES</span>
+          <h2 class="section-title">시크릿 겟어웨이와 함께한 여정</h2>
+          <p class="section-desc">바쁜 일상 속, 진짜 나를 되찾은 분들의 솔직한 이야기입니다.</p>
+        </div>
+
+        <div id="testimonials-slider" class="testimonials-slider">
+          <!-- Rendered dynamically by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- About Creator Section -->
+    <section id="about" class="about-section section-padding">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-image-wrapper">
+            <img src="./public/images/creator_portrait.png" alt="대표 큐레이터 줄리아 한의 인물 사진" class="about-img" loading="lazy">
+            <div class="about-badge">
+              <span>LEAD CURATOR</span>
+              <strong>JULIA HAN</strong>
+            </div>
+          </div>
+
+          <div class="about-text-content">
+            <span class="section-subtitle">BEHIND THE BRAND</span>
+            <h2 class="about-title">
+              "체크리스트를 채우는 관광이 아닌,<br>
+              가슴이 조용히 머무는 순간을 선물합니다"
+            </h2>
+            <div class="about-bio">
+              <p>
+                안녕하세요, My Secret Getaway의 대표 큐레이터 줄리아입니다.<br>
+                지난 8년간 전 세계 40여 개 도시와 국내 숨은 소도시들을 여행하며 깨달은 것은,
+                진정한 휴식은 화려한 유명 관광지가 아닌 '나의 취향과 속도가 맞물리는 한 조각의 공간'에서 온다는 것이었습니다.
+              </p>
+              <p>
+                정보의 홍수 속에서 여행 준비로 또 다른 피로를 겪는 2030 직장인분들을 위해, 
+                제가 직접 방문하고 감동했던 프라이빗 공간들과 동선을 정성껏 나누고 있습니다.
+              </p>
+            </div>
+
+            <div class="about-stats">
+              <div class="stat-item">
+                <span class="stat-num">500+</span>
+                <span class="stat-label">검증된 시크릿 스팟</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-num">99.2%</span>
+                <span class="stat-label">고객 일정 만족도</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-num">1:1</span>
+                <span class="stat-label">맞춤 밀착 케어</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="main-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <span class="logo-title">MY SECRET GETAWAY</span>
+          <p class="footer-tagline">Curated Private Travel & Bespoke Itinerary Design</p>
+        </div>
+
+        <div class="footer-links-group">
+          <div class="footer-col">
+            <h4>EXPLORE</h4>
+            <a href="#curation">이달의 큐레이션</a>
+            <a href="#secret-map">구독자 시크릿 맵</a>
+            <a href="#guidebook">디지털 가이드북</a>
+          </div>
+          <div class="footer-col">
+            <h4>SERVICE</h4>
+            <a href="#consulting">1:1 맞춤 일정 컨설팅</a>
+            <a href="#about">큐레이터 소개</a>
+            <a href="#">FAQ / 이용안내</a>
+          </div>
+          <div class="footer-col">
+            <h4>CONNECT</h4>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram (@secret_getaway)</a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">YouTube (시크릿겟어웨이)</a>
+            <a href="mailto:hello@secretgetaway.co">hello@secretgetaway.co</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 MY SECRET GETAWAY. All rights reserved. Designed for mindful travelers.</p>
+        <div class="footer-legal">
+          <a href="#">개인정보처리방침</a>
+          <span>|</span>
+          <a href="#">이용약관</a>
+          <span>|</span>
+          <a href="./admin-login.html">Admin</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal: Place Detail / Secret Map Pin Modal -->
+  <div id="place-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-card">
+      <button class="modal-close-btn" id="place-modal-close" aria-label="팝업 닫기">&times;</button>
+      <div id="modal-place-body">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Shopping Cart & Checkout -->
+  <div id="cart-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-card cart-modal-card">
+      <button class="modal-close-btn" id="cart-modal-close" aria-label="장바구니 닫기">&times;</button>
+      <div class="cart-modal-header">
+        <h3>장바구니 (<span id="cart-modal-count">0</span>)</h3>
+      </div>
+      <div id="cart-modal-items" class="cart-modal-items">
+        <!-- Rendered by JS -->
+      </div>
+      <div class="cart-modal-footer">
+        <div class="cart-total-row">
+          <span>총 결제 금액</span>
+          <strong id="cart-total-price">0원</strong>
+        </div>
+        <button id="cart-checkout-btn" class="btn btn-terracotta btn-block">디지털 가이드북 주문 및 즉시 다운로드</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Consulting Success -->
+  <div id="success-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-card success-modal-card text-center">
+      <div class="success-icon" aria-hidden="true">✨</div>
+      <h2>컨설팅 의뢰가 성공적으로 접수되었습니다</h2>
+      <p class="success-msg">
+        입력해주신 연락처로 담당 큐레이터가 <strong>24시간 이내</strong>에 사전 질문지와 함께 안내 메시지를 드립니다.
+      </p>
+      <div class="summary-box" id="consulting-summary-box">
+        <!-- Rendered by JS -->
+      </div>
+      <button id="success-modal-close" class="btn btn-primary btn-md">확인</button>
+    </div>
+  </div>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
