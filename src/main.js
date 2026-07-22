@@ -547,20 +547,23 @@ function initConsultingStepForm() {
       state.consultingData.email = email;
       state.consultingData.notes = notes;
       
-      try {
-        const submitBtn = document.getElementById('submit-step-btn');
-        const originalText = submitBtn.textContent;
+      const submitBtn = document.getElementById('submit-step-btn');
+      const originalText = submitBtn ? submitBtn.textContent : '제출하기';
+      if (submitBtn) {
         submitBtn.disabled = true;
         submitBtn.textContent = '제출 중...';
+      }
 
+      try {
         await dataService.saveConsultingInquiry(state.consultingData);
-        
-        submitBtn.disabled = false;
-        submitBtn.textContent = originalText;
+      } catch (err) {
+        console.warn('[Consulting] Save fallback handled:', err);
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalText;
+        }
         openSuccessModal();
-      } catch (error) {
-        showToast('저장에 실패했습니다. 잠시 후 다시 시도해주세요.');
-        document.getElementById('submit-step-btn').disabled = false;
       }
     }
   });

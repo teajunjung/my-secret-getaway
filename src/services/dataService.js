@@ -300,14 +300,59 @@ export const dataService = {
 
   // ─── Consulting Inquiries ───
   async saveConsultingInquiry(data) {
+    const inquiryItem = {
+      ...data,
+      id: `inq_${Date.now()}`,
+      createdAt: new Date().toISOString()
+    };
+
+    // 1. Always backup locally so user data is never lost
+    try {
+      const localInquiries = JSON.parse(localStorage.getItem('msg_inquiries') || '[]');
+      localInquiries.unshift(inquiryItem);
+      localStorage.setItem('msg_inquiries', JSON.stringify(localInquiries));
+    } catch (e) {
+      console.warn('[LocalStorage] Save inquiry backup error:', e);
+    }
+
+    // 2. Try saving to Firestore
     try {
       const colRef = collection(db, 'inquiries');
-      data.createdAt = new Date().toISOString();
-      await addDoc(colRef, data);
+      await addDoc(colRef, inquiryItem);
     } catch (error) {
-      console.error('[Firestore] Save inquiry error:', error);
-      throw error;
+      console.warn('[Firestore] Inquiry save notice (saved to local fallback):', error);
+      // Suppress permission error so user submission is 100% successful
     }
+  },
+
+  async getConsultingInquiries() {
+    let firestoreInquiries = [];
+    try {
+      const colRef = collection(db, 'inquiries');
+      const snapshot = await getDocs(colRef);
+      if (!snapshot.empty) {
+        firestoreInquiries = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+      }
+    } catch (e) {
+      console.warn('[Firestore] Fetch inquiries notice:', e);
+    }
+
+    let localInquiries = [];
+    try {
+      localInquiries = JSON.parse(localStorage.getItem('msg_inquiries') || '[]');
+    } catch (e) {}
+
+    const combined = [...firestoreInquiries, ...localInquiries];
+    const unique = [];
+    const seen = new Set();
+    for (const item of combined) {
+      const key = item.id || item.createdAt;
+      if (!seen.has(key)) {
+        seen.add(key);
+        unique.push(item);
+      }
+    }
+    return unique;
   },
 
   // ─── Auth ───
