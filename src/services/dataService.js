@@ -25,7 +25,7 @@ const DEFAULT_CURATIONS = [
     badge: 'NEW',
     ratingLabel: '휴식도',
     ratingValue: '5.0 / 5.0',
-    image: './public/images/hero_forest.png',
+    image: './images/hero_forest.png',
     quote: '스마트폰을 끄고 차 한 잔과 숲의 소리에 몰입하는 오롯한 피난처입니다.',
     description: '수령 50년 이상의 잣나무 숲에 둘러싸인 독채 샬레입니다. 사방이 통창으로 구성되어 아침 안개와 새소리를 들으며 명상과 다도를 즐길 수 있습니다.',
     lat: '37.7312',
@@ -40,7 +40,7 @@ const DEFAULT_CURATIONS = [
     badge: '단독 공개',
     ratingLabel: '뷰만족도',
     ratingValue: '5.0 / 5.0',
-    image: './public/images/ocean_cliff.png',
+    image: './images/ocean_cliff.png',
     quote: '에메랄드빛 바다와 하얀 시폰 커튼 바람이 선사하는 로맨틱한 일몰.',
     description: '아말피 절벽 끝자락에 위치하여 사생활이 완전히 보장되는 프리미엄 바이더씨 테라스입니다. 파도 소리와 함께 와인을 나누기에 완벽합니다.',
     lat: '40.6281',
@@ -55,7 +55,7 @@ const DEFAULT_CURATIONS = [
     badge: '인기 스팟',
     ratingLabel: '영감도',
     ratingValue: '4.9 / 5.0',
-    image: './public/images/kyoto_tea.png',
+    image: './images/kyoto_tea.png',
     quote: '비 오는 날 창가에 앉아 말차를 마시며 창작의 아이디어를 벼리는 시간.',
     description: '관광객에게 잘 알려지지 않은 300년 전통 젠 다실입니다. 조용한 정원 음향과 고즈넉한 인테리어가 지친 마음을 평온하게 다스려줍니다.',
     lat: '35.0116',
@@ -70,7 +70,7 @@ const DEFAULT_CURATIONS = [
     badge: 'NEW',
     ratingLabel: '작업몰입도',
     ratingValue: '5.0 / 5.0',
-    image: './public/images/hero_forest.png',
+    image: './images/hero_forest.png',
     quote: '넓은 원목 작업대와 삼나무 향기가 가득한 워케이션 최적의 보금자리.',
     description: '글을 쓰거나 노트북 작업을 하기에 특화된 프라이빗 아틀리에입니다. 고속 Wi-Fi와 드립 커피 도구, LP 플레이어가 구비되어 있습니다.',
     lat: '33.5184',
@@ -85,7 +85,7 @@ const DEFAULT_CURATIONS = [
     badge: '단독 공개',
     ratingLabel: '아늑함',
     ratingValue: '4.8 / 5.0',
-    image: './public/images/ocean_cliff.png',
+    image: './images/ocean_cliff.png',
     quote: '침대에 누워 동해의 잔잔한 일출을 시야 방해 없이 눈에 담는 안식처.',
     description: '최소한의 가구와 여백의 미를 살린 건축으로, 오롯이 일출과 바다 소리에 집중할 수 있는 차분한 해변 스튜디오입니다.',
     lat: '37.8286',
@@ -100,7 +100,7 @@ const DEFAULT_CURATIONS = [
     badge: '추천',
     ratingLabel: '정적도',
     ratingValue: '5.0 / 5.0',
-    image: './public/images/kyoto_tea.png',
+    image: './images/kyoto_tea.png',
     quote: '새소리와 바람 소리 외에는 어떤 도시 소음도 들리지 않는 리트릿.',
     description: '발리 정글 깊숙한 곳에 조성된 오가닉 바이오 에코 로지입니다. 자연 수영장과 개인 요가 파빌리온에서 마인드풀니스를 경험하세요.',
     lat: '-8.5069',
@@ -116,7 +116,7 @@ const DEFAULT_GUIDEBOOKS = [
     pages: '36 Pages PDF',
     price: 29000,
     priceFormatted: '29,000원',
-    image: './public/images/kyoto_tea.png',
+    image: './images/kyoto_tea.png',
     description: '번잡한 관광 코스를 뺀 도쿄 앤티크 찻집, 셰프의 주방, 디자이너 편집숍과 동선 동기화 구글 맵이 수록된 종합 안내서입니다.'
   },
   {
@@ -126,7 +126,7 @@ const DEFAULT_GUIDEBOOKS = [
     pages: '28 Pages PDF',
     price: 25000,
     priceFormatted: '25,000원',
-    image: './public/images/hero_forest.png',
+    image: './images/hero_forest.png',
     description: '제주의 한라산 자락 숲길과 현지인들만 아는 작은 찻집, 조용한 해변 노을 명소만을 엄선한 감성 코스 가이드북.'
   },
   {
@@ -136,7 +136,7 @@ const DEFAULT_GUIDEBOOKS = [
     pages: '42 Pages PDF',
     price: 32000,
     priceFormatted: '32,000원',
-    image: './public/images/ocean_cliff.png',
+    image: './images/ocean_cliff.png',
     description: '시간이 천천히 흐르는 교토의 고즈넉한 골목, 오래된 책방, 정원이 아름다운 미슐랭 가이세키 추천 동선집.'
   }
 ];
@@ -147,21 +147,21 @@ const DEFAULT_TESTIMONIALS = [
     quote: '바쁜 프로젝트 끝내고 무작정 떠났는데, 크리에이터님이 동선부터 숙소까지 완벽하게 맞춰주셔서 인생 최고의 휴식을 보냈습니다.',
     name: '김서현 님',
     role: '30대 IT 서비스 기획자',
-    avatar: './public/images/creator_portrait.png'
+    avatar: './images/creator_portrait.png'
   },
   {
     id: 't2',
     quote: '뻔한 관광지 하나 없이 오롯이 내 취향에 맞춘 스팟들만 골라주신 1:1 컨설팅! 준비하는 피로가 전혀 없어서 감동했습니다.',
     name: '박성민 님',
     role: '20대 프리랜서 디자이너',
-    avatar: './public/images/creator_portrait.png'
+    avatar: './images/creator_portrait.png'
   },
   {
     id: 't3',
     quote: '디지털 가이드북 사서 떠났는데 동선 고민이 전혀 없었어요. 이메일 구독 시크릿 맵 지도 핀도 최고였습니다.',
     name: '이윤아 님',
     role: '30대 브랜드 마케터',
-    avatar: './public/images/creator_portrait.png'
+    avatar: './images/creator_portrait.png'
   }
 ];
 

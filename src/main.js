@@ -27,6 +27,12 @@ const state = {
   siteSettings: {}
 };
 
+// Helper function to format image URLs safely
+function formatImgUrl(url) {
+  if (!url) return './images/hero_forest.png';
+  return url.replace(/^\.?\/?public\/images\//, './images/');
+}
+
 // DOM Content Loaded Handler
 document.addEventListener('DOMContentLoaded', async () => {
   // Load data from dataService (localStorage → Firebase ready)
@@ -224,7 +230,7 @@ function renderCurations(tag = 'all') {
   grid.innerHTML = filtered.map(item => `
     <article class="curation-card" data-id="${item.id}" tabindex="0" role="button" aria-label="${item.title} 상세 보기">
       <div class="card-image-box">
-        <img src="${item.image}" alt="${item.title}" loading="lazy">
+        <img src="${formatImgUrl(item.image)}" alt="${item.title}" loading="lazy">
         <span class="badge-tag ${item.badge === 'NEW' ? 'badge-new' : 'badge-exclusive'} card-badge-pos">${item.badge}</span>
       </div>
       <div class="card-body">
@@ -292,7 +298,7 @@ function openPlaceModal(id) {
       <p style="font-size: 0.85rem; color: var(--sage-green-dark); font-weight: 700;">${item.location} · ★ ${item.ratingLabel} ${item.ratingValue}</p>
     </div>
     <div style="width: 100%; height: 260px; border-radius: 12px; overflow: hidden; margin-bottom: 20px;">
-      <img src="${item.image}" alt="${item.title}" style="width:100%; height:100%; object-fit:cover;">
+      <img src="${formatImgUrl(item.image)}" alt="${item.title}" style="width:100%; height:100%; object-fit:cover;">
     </div>
     <blockquote style="font-family: var(--font-serif); font-style: italic; font-size: 1.1rem; border-left: 3px solid var(--terracotta); padding-left: 14px; margin-bottom: 20px; color: var(--text-main);">
       "${item.quote}"
@@ -390,7 +396,7 @@ function renderGuidebooks() {
     <article class="guidebook-card">
       <div class="guidebook-thumb">
         <span class="pdf-badge">PDF</span>
-        <img src="${item.image}" alt="${item.title}" loading="lazy">
+        <img src="${formatImgUrl(item.image)}" alt="${item.title}" loading="lazy">
       </div>
       <div class="guidebook-body">
         <span class="guidebook-pages">${item.pages} · 즉시 다운로드</span>
@@ -484,7 +490,7 @@ function renderCartModalItems() {
 
   container.innerHTML = state.cart.map(item => `
     <div class="cart-item">
-      <img src="${item.image}" alt="${item.title}">
+      <img src="${formatImgUrl(item.image)}" alt="${item.title}">
       <div class="cart-item-info">
         <h4>${item.title}</h4>
         <span class="cart-item-price">${item.priceFormatted}</span>
@@ -676,7 +682,7 @@ function renderTestimonials() {
         <p class="testimonial-text">${item.quote}</p>
       </div>
       <div class="reviewer-meta">
-        <img src="${item.avatar}" alt="${item.name}" class="reviewer-avatar">
+        <img src="${formatImgUrl(item.avatar)}" alt="${item.name}" class="reviewer-avatar">
         <div class="reviewer-info">
           <strong>${item.name}</strong>
           <span>${item.role}</span>

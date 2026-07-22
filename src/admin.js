@@ -625,7 +625,7 @@ function initTestimonialEditor() {
     
     // default placeholder avatar if none uploaded
     if (!avatarUrl) {
-       avatarUrl = './public/images/creator_portrait.png';
+       avatarUrl = './images/creator_portrait.png';
     }
 
     const itemData = {
